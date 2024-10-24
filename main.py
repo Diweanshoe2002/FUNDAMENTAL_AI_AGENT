@@ -214,6 +214,8 @@ def main():
             try:
                 result = agent.analyze(query)
                 st.write(result)
+            except Exception as e:
+                 st.error(f"Error initializing agent: {str(e)}")
 
 if __name__ == "__main__":
     main()
