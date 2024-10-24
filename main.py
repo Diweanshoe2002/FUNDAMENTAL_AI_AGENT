@@ -213,7 +213,7 @@ def main():
         with st.spinner("Analyzing..."):
             try:
                 result = agent.analyze(query)
-                st.write(result)
+                st.write(result.keys())
             except Exception as e:
                  st.error(f"Error initializing agent: {str(e)}")
 
