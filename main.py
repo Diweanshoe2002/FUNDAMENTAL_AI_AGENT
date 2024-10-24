@@ -213,27 +213,7 @@ def main():
         with st.spinner("Analyzing..."):
             try:
                 result = agent.analyze(query)
-                
-                # Display results in an expandable section
-                with st.expander("Analysis Results", expanded=True):
-                    st.markdown(result['output'])
-                    
-                    # Try to parse any JSON in the output for better formatting
-                    try:
-                        # Look for JSON strings in the output and format them
-                        import re
-                        json_strings = re.findall(r'{.*}', result['output'], re.DOTALL)
-                        for json_str in json_strings:
-                            try:
-                                parsed_json = json.loads(json_str)
-                                st.json(parsed_json)
-                            except:
-                                continue
-                    except:
-                        pass
-
-            except Exception as e:
-                st.error(f"Error during analysis: {str(e)}")
+                st.write(result)
 
 if __name__ == "__main__":
     main()
